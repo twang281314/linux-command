@@ -9,13 +9,13 @@ nmap
 
 ### 语法  
 
-```
+```shell
 nmap(选项)(参数)
 ```
 
 ### 选项  
 
-```
+```shell
 -O：激活操作探测；
 -P0：值进行扫描，不ping主机；
 -PT：是同TCP的ping；
@@ -39,6 +39,7 @@ nmap(选项)(参数)
 --ttl：指定发送的扫描报文的生存期；
 --packet-trace：显示扫描过程中收发报文统计；
 --scanflags：设置在扫描报文中的TCP标志。
+--send-eth/--send-ip 使用原始以太网发送/构造指定IP发送
 ```
 
 ### 参数  
@@ -49,13 +50,13 @@ ip地址：指定待扫描报文中的TCP地址。
 
  **安装nmap** 
 
-```
+```shell
 yum install nmap
 ```
 
  **使用nmap扫描www.jsdig.com的开放端口** 
 
-```
+```shell
 [root@localhost ~]# nmap www.jsdig.com
 
 Starting Nmap 4.11 ( http://www.insecure.org/nmap/ ) at 2013-12-28 00:06 CST

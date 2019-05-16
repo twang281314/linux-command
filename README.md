@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://www.oschina.net/">
-    <img height="100" src="./template/img/logo.svg?sanitize=true">
+    <img src="./template/img/banner.svg?sanitize=true">
   </a>
 </p>
 
@@ -10,19 +10,55 @@ Linux Command
 [![](https://jaywcjlove.github.io/sb/ico/linux.svg)](https://jaywcjlove.github.io/linux-command/) [![](https://jaywcjlove.github.io/sb/ico/weibo.svg)](http://weibo.com/pc175)
 
 
-540多个 Linux 命令，内容包含 Linux 命令手册、详解、学习，值得收藏的 Linux 命令速查手册。请原谅我写了个爬虫，爬了他们家的数据 [linuxde.net](http://man.linuxde.net) ，同时进行了编辑，增加了一些数据。对他们的辛勤劳动表示敬意，个人希望能本地离线搜索，不喜欢广告，希望得到干净漂亮的预览界面，业余和工作时间需要使用大量的命令，所以干了一件看似比较愚蠢的事情，在回头有空的时候估计能做一个App？，或者是命令行帮助工具？但目前还没有计划...
+550 多个 Linux 命令，内容包含 Linux 命令手册、详解、学习，值得收藏的 Linux 命令速查手册。请原谅我写了个爬虫，爬了他们家的数据 [linuxde.net](http://man.linuxde.net) ，同时进行了编辑，增加了一些数据。对他们的辛勤劳动表示敬意，个人希望能本地离线搜索，不喜欢广告，希望得到干净漂亮的预览界面，业余和工作时间需要使用大量的命令，所以干了一件看似比较愚蠢的事情，在回头有空的时候估计能做一个App？，或者是命令行帮助工具？但目前还没有计划...
 
-[Github Web版](https://jaywcjlove.github.io/linux-command/) | [开源中国Web版](http://jaywcjlove.gitee.io/linux-command/) | [其它Web版](http://linux-command.composer-proxy.org/) | [Alfred 版本下载](https://github.com/jaywcjlove/linux-command/releases) | [Android版本实现](https://github.com/Ernest-su/LinuxCmd.git) | [Mac/Win/Linux](https://github.com/haloislet/linux-command) | [Chrome插件](https://github.com/jaywcjlove/oscnews)
+[Web](#web-版本) | [Dash](#dash-版本) | [Alfred](#alfred-版本) | [Krunner](https://github.com/roachsinai/krunner-linuxcommands) | [Android](https://github.com/Ernest-su/LinuxCmd.git) | [Mac/Win/Linux](https://github.com/haloislet/linux-command) | [Chrome Plugin](#chrome-插件)
+
+## 开发使用
+
+可以通过 `npm` 安装 `linux-command` 包，包含所有命令的 markdown 文本，和一个[索引文件](dist/data.json)。
+
+```bash
+npm install linux-command
+```
+
+```js
+var comm = require("linux-command");
+console.log("---->", comm.ls);
+
+var alias = require("linux-command/command/alias.md");
+console.log("---->", alias); // markdown string
+```
+
+你也可以通过 CDN 来访问索引数据，和对应的命令详细内容，我将更新内容定期发布版本，提供大家使用，[UNPKG](https://unpkg.com/linux-command/) 带上版本号，将锁定版本访问，删除版本号请求数据，将会自动重定向最新版本。
+
+```shell
+# 命令索引 JSON 数据
+https://unpkg.com/linux-command/dist/data.json
+# 对应命令详情（Markdown）数据
+https://unpkg.com/linux-command/command/<命令名称>.md
+```
+
+你也可以通过 Github 的 Raw 来，获取最新的内容
+
+```shell
+# 命令索引 JSON 数据
+https://raw.githubusercontent.com/jaywcjlove/linux-command/master/dist/data.json
+# 对应命令详情（Markdown）数据
+https://raw.githubusercontent.com/jaywcjlove/linux-command/master/command/<命令名称>.md 
+```
 
 #### Chrome 插件
 
-可在[源码仓库](https://github.com/jaywcjlove/oscnews)预览效果，[Github下载 oscnews.crx 文件](https://github.com/jaywcjlove/oscnews/releases) 或者[开源中国下载 oscnews.crx 文件](https://gitee.com/jaywcjlove/oscnews/releases) 也可通过 Chrome Web Store 下载：
+可在[源码仓库](https://github.com/jaywcjlove/oscnews)预览效果，[Github下载 crx 文件安装](https://github.com/jaywcjlove/oscnews/releases) 或者[开源中国下载 crx 文件安装](https://gitee.com/jaywcjlove/oscnews/releases) 也可通过 Chrome Web Store 下载：
 
 [![Chrome Web Store 下载](http://jaywcjlove.github.io/sb/download/chrome-web-store.svg)](https://chrome.google.com/webstore/detail/oscnews/iheapfheanfjcemgneblljhaebonakbg)
 
 [![Chrome Web Store 下载](./assets/chrome-extensions.gif)](https://github.com/jaywcjlove/oscnews)
 
-#### 官方 Web 版本
+#### Web 版本
+
+[Github Web](http://jaywcjlove.github.io/linux-command/) | [OSChina Web](http://jaywcjlove.gitee.io/linux-command/) | [Web 1](http://linux-command.composer-proxy.org/)
 
 扫描二维码移动端预览搜索，也可通过二维码下面链接地址打开使用。
 
@@ -38,12 +74,18 @@ Linux Command
 
 [![Linux 命令大全](./assets/alfred.png)](https://github.com/jaywcjlove/linux-command/releases)
 
+#### Dash 版本
+
+由 [**@SHANG殇**](https://github.com/xinshangshangxin) 提供的 `Dash` 版本 [#91](https://github.com/jaywcjlove/linux-command/pull/91)，可配合 `alfred` 玩耍，下载 [linux-command.docset.zip](https://github.com/jaywcjlove/linux-command/releases) 文件解压，点击安装即可。
+
+[![](https://user-images.githubusercontent.com/8779091/57193499-5b475d00-6f6e-11e9-879d-e7e8fdc40ced.gif)](https://github.com/jaywcjlove/linux-command/releases)
+
 ## 目录
 
 - [Linux命令分类](#linux命令分类)
   - [文件管理](#文件管理) File Management
   - [文件传输](#文件传输) File Transfer
-  - [文档编辑](#文档编辑) File Editor
+  - [文本处理](#文本处理) File Editor
   - [备份压缩](#备份压缩) File Compression
   - [系统管理](#系统管理) System Management
   - [系统设置](#系统设置) System Settings
@@ -68,7 +110,7 @@ Linux Command
 
 ### 文件传输
 
-bye、ftp、ftpcount、ftpshut、ftpwho、ncftp、tftp、uucico、uucp、uupick、uuto
+bye、ftp、ftpcount、ftpshut、ftpwho、ncftp、tftp、uucico、uucp、uupick、uuto、scp
 
 ### 备份压缩
 
@@ -94,9 +136,9 @@ alias、apmd、aumix、bind、chkconfig、chroot、clock、crontab、declare、d
 
 adduser、chfn、chsh、date、exit、finger、free、fwhois、gitps、groupdel、groupmod、halt、id、kill、last、lastb、login、logname、logout、logrotate、newgrp、nice、procinfo、ps、pstree、reboot、renice、rlogin、rsh、rwho、screen、shutdown、sliplogin、su、sudo、suspend、swatch、tload、top、uname、useradd、userconf、userdel、usermod、vlock、w、who、whoami、whois
 
-### 文档编辑
+### 文本处理
 
-col、colrm、comm、csplit、ed、egrep、ex、fgrep、fmt、fold、grep、ispell、jed、joe、join、look、mtype、pico、rgrep、sed、sort、spell、tr、uniq、wc
+awk、col、colrm、comm、csplit、ed、egrep、ex、fgrep、fmt、fold、grep、ispell、jed、joe、join、look、mtype、pico、rgrep、sed、sort、spell、tr、uniq、vi、wc
 
 ### 网络通讯
 
@@ -113,29 +155,6 @@ archive、ctlinnd、elm、getlist、inncheck、mail、mailconf、mailq、message
 ### 其他命令
 
 yes
-
-## 使用
-
-### Node调用
-
-```
-npm install linux-command
-```
-
-
-```js
-var comm = require("linux-command")
-console.log("---->",comm.ls)
-
-var alias = require("linux-command/command/alias.md")
-console.log("---->",alias) // markdown string
-```
-
-### CDN
-
-https://unpkg.com/linux-command/dist/data.json 命令总 JSON 数据  
-https://unpkg.com/linux-command/command/alias.md 对应命令详情（Markdown）数据  
-
 
 ## Linux学习资源整理
 

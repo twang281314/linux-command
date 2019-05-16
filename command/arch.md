@@ -9,13 +9,20 @@ arch
 
 ### 语法  
 
+```shell
+arch [选项]...
 ```
-arch
+
+### 选项
+
+```shell
+--help 显示此帮助信息并退出
+--version 显示版本信息并退出
 ```
 
 ### 实例  
 
-```
+```shell
 arch
 x86_64
 ```

@@ -9,20 +9,20 @@ atq
 
 ### 语法  
 
-```
-atq(选项)
+```shell
+atq [-V] [-q 队列] [-v]
 ```
 
 ### 选项  
 
-```
+```shell
 -V：显示版本号；
 -q：查询指定队列的任务。
 ```
 
 ### 实例  
 
-```
+```shell
 at now + 10 minutes
 at> echo 1111
 at> <eot>
